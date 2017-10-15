@@ -13,6 +13,8 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.0-rc1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$vKotlin"
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -26,8 +28,17 @@ allprojects {
     }
 
     if (project.name.startsWith("kola")) {
+
         apply plugin: 'com.android.library'
         apply plugin: 'kotlin-android'
+
+        // Function that generate versions code from version 'MAJOR.MINOR.PATCH'
+        def generateVersionCode = { version ->
+            def (major, minor, patch) = version.split('\\.').collect { it as Integer }
+            major * 10000 + minor * 100 + patch
+        }
+
+        def vName = '0.1.0'
 
         android {
             compileSdkVersion 26
@@ -36,8 +47,8 @@ allprojects {
             defaultConfig {
                 minSdkVersion 17
                 targetSdkVersion 26
-                versionCode 1
-                versionName "1.0"
+                versionCode generateVersionCode(vName)
+                versionName vName
             }
 
             buildTypes {
@@ -52,5 +63,36 @@ allprojects {
         dependencies {
             implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$vKotlin"
         }
+
+        def name = project.name
+
+        println "Project name: $name"
+
+        ext {
+            bintrayRepo = 'maven'
+            bintrayName = name
+
+            publishedGroupId = 'io.kola'
+            libraryName = name
+            artifact = name
+
+            libraryDescription = 'Kola is a library full of sugar to boost Android development with Kotlin.'
+
+            siteUrl = 'https://github.com/JimmyRobz/Kola'
+            gitUrl = 'https://github.com/JimmyRobz/Kola.git'
+
+            libraryVersion = vName
+
+            developerId = 'jimmyrobz'
+            developerName = 'Jimmy Robz'
+            developerEmail = 'jimmy@robz.re'
+
+            licenseName = 'MIT License'
+            licenseUrl = 'https://opensource.org/licenses/MIT'
+            allLicenses = ["MIT"]
+        }
+
+        apply from: project.rootProject.file('install.gradle')
+        apply from: project.rootProject.file('bintray.gradle')
     }
 }
