@@ -27,10 +27,12 @@ abstract class UiComponent: AnkoComponent<Context> {
 }
 
 fun UiComponent.layout(block: AnkoContext<Context>.() -> View) = with(context, block)
+
 fun UiComponent.createView(context: Context) = createView(AnkoContext.create(context))
-fun UiComponent.setContentView(activity: Activity) = createView(AnkoContext.create(activity, true))
 fun UiComponent.createView(fragment: Fragment) = createView(AnkoContext.create(fragment.activity))
 fun UiComponent.createView(fragment: SupportFragment) = createView(AnkoContext.create(fragment.context))
+
+fun UiComponent.setContentView(activity: Activity) = createView(AnkoContext.create(activity, true))
 
 
 fun <T: UiComponent> ViewManager.include(block: ()-> T) = include(block) {}
