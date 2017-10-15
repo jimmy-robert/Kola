@@ -6,36 +6,35 @@ import android.content.Context
 import android.view.View
 import android.view.ViewManager
 import io.kola.core.SupportFragment
-import org.jetbrains.anko.UI
+import org.jetbrains.anko.AnkoComponent
+import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.custom.ankoView
 
-abstract class UiComponent {
-
-    lateinit var context: Context private set
+abstract class UiComponent: AnkoComponent<Context> {
+    lateinit var context: AnkoContext<Context> private set
     lateinit var view: View private set
 
-    abstract fun createView(): View
-
-    fun createView(context: Context): View {
-        this.context = context
+    override fun createView(ui: AnkoContext<Context>): View {
+        context = ui
         view = createView()
         onViewCreated()
         return view
     }
 
-    fun asContentView(activity: Activity) {
-        createView(activity)
-        activity.setContentView(view)
-    }
-
-    fun createView(fragment: Fragment) = createView(fragment.activity)
-
-    fun createView(fragment: SupportFragment) = createView(fragment.context)
-
-    protected inline fun layout(block: AnkoBuilder<Context>) = context.UI(block).view
+    abstract fun createView(): View
 
     protected open fun onViewCreated() { }
 }
+
+fun UiComponent.layout(block: AnkoContext<Context>.() -> View) = with(context, block)
+fun UiComponent.createView(context: Context) = createView(AnkoContext.create(context))
+fun UiComponent.setContentView(activity: Activity) = createView(AnkoContext.create(activity, true))
+fun UiComponent.createView(fragment: Fragment) = createView(AnkoContext.create(fragment.activity))
+fun UiComponent.createView(fragment: SupportFragment) = createView(AnkoContext.create(fragment.context))
+
+
+fun <T: UiComponent> ViewManager.include(block: ()-> T) = include(block) {}
+inline fun <T: UiComponent> ViewManager.include(block: () -> T, init: T.() -> Unit) = include(block(), init)
 
 fun <T: UiComponent> ViewManager.include(component: T) = include(component) {}
 inline fun <T: UiComponent> ViewManager.include(component: T, init: T.() -> Unit): T {
@@ -47,9 +46,6 @@ inline fun <T: UiComponent> ViewManager.include(component: T, init: T.() -> Unit
     return component
 }
 
-fun ui(block: AnkoBuilder<Context>) = object: UiComponent() {
+fun createUi(block: AnkoContext<Context>.() -> View) = object: UiComponent() {
     override fun createView() = layout(block)
 }
-
-fun <T: UiComponent> ViewManager.include(block: ()-> T) = include(block) {}
-inline fun <T: UiComponent> ViewManager.include(block: () -> T, init: T.() -> Unit) = include(block(), init)
