@@ -1,1 +1,1 @@
-include ':kola-core', ':kola-events', ':kola-ui', ':kola-recycler', ':kola-ratiolayout', ':kola-all'
+include ':kola-core', ':kola-events', ':kola-ui', ':kola-recycler', ':kola-ratiolayout', ':kola'
