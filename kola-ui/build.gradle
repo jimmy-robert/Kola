@@ -1,0 +1,5 @@
+dependencies {
+    implementation project(':kola-core')
+
+    compileOnly "org.jetbrains.anko:anko-sdk25:$vAnko"
+}

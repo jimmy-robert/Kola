@@ -1,0 +1,11 @@
+kotlin {
+    experimental {
+        coroutines 'enable'
+    }
+}
+
+dependencies {
+    compileOnly "com.android.support:support-vector-drawable:$vSupport"
+    compileOnly "com.android.support:support-fragment:$vSupport"
+    compileOnly "com.android.support:recyclerview-v7:$vSupport"
+}

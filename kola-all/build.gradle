@@ -1,0 +1,7 @@
+dependencies {
+    implementation project(':kola-core')
+    implementation project(':kola-events')
+    implementation project(':kola-ratiolayout')
+    implementation project(':kola-recycler')
+    implementation project(':kola-ui')
+}

@@ -1,0 +1,3 @@
+dependencies {
+    compileOnly "org.jetbrains.anko:anko-sdk25:$vAnko"
+}

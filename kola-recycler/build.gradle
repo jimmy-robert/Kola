@@ -1,0 +1,5 @@
+dependencies {
+    implementation project(':kola-ui')
+
+    compileOnly "com.android.support:recyclerview-v7:$vSupport"
+}
