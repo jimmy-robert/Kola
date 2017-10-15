@@ -1,5 +1,6 @@
 dependencies {
     implementation project(':kola-core')
 
+    compileOnly "com.android.support:support-fragment:$vSupport"
     compileOnly "org.jetbrains.anko:anko-sdk25:$vAnko"
 }
