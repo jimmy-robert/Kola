@@ -19,7 +19,7 @@ class EventHandler<T> {
     }
 
     operator fun invoke(value: T) {
-        for ((_, handler) in handlersByToken) handler(value)
+        for (handler in handlers) handler(value)
     }
 
     fun register(handler: (T) -> Unit): String {
@@ -35,5 +35,10 @@ class EventHandler<T> {
             handlers -= handler
             handlersByToken -= token
         }
+    }
+
+    fun unregisterAll() {
+        handlers.clear()
+        handlersByToken.clear()
     }
 }
