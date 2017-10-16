@@ -1,3 +1,5 @@
+description = 'Kola UI module simplifies the use of Anko components thanks to its easy to use UiComponent.'
+
 dependencies {
     implementation project(':kola-core')
 

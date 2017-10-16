@@ -1,3 +1,5 @@
+description = 'Kola RatioLayout module lets you create a layout that respects the given ratio.'
+
 dependencies {
     compileOnly "org.jetbrains.anko:anko-sdk25:$vAnko"
 }

@@ -66,8 +66,6 @@ allprojects {
 
         def name = project.name
 
-        println "Project name: $name"
-
         ext {
             bintrayRepo = 'maven'
             bintrayName = name
@@ -76,7 +74,7 @@ allprojects {
             libraryName = name
             artifact = name
 
-            libraryDescription = 'Kola is a library full of sugar to boost Android development with Kotlin.'
+            libraryDescription = project.description
 
             siteUrl = 'https://github.com/JimmyRobz/Kola'
             gitUrl = 'https://github.com/JimmyRobz/Kola.git'

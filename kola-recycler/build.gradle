@@ -1,5 +1,8 @@
+description = 'Kola RecyclerView module offers faster list implementation with RecyclerItem and RecyclerItemAdapter.'
+
 dependencies {
     implementation project(':kola-ui')
 
     compileOnly "com.android.support:recyclerview-v7:$vSupport"
+    compileOnly "org.jetbrains.anko:anko-sdk25:$vAnko"
 }

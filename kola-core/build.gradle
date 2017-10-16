@@ -1,3 +1,5 @@
+description = 'Kola core module.'
+
 kotlin {
     experimental {
         coroutines 'enable'
