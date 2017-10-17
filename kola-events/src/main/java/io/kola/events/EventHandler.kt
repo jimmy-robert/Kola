@@ -37,8 +37,7 @@ class EventHandler<T> {
         }
     }
 
-    fun unregisterAll() {
-        handlers.clear()
-        handlersByToken.clear()
+    fun unregisterAll(tokens: Collection<String>) {
+        for (token in tokens) unregister(token)
     }
 }
