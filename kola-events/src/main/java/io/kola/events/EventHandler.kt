@@ -37,7 +37,7 @@ class EventHandler<T> {
         }
     }
 
-    fun unregisterAll(tokens: Collection<String>) {
+    fun unregisterAll(tokens: Iterable<String>) {
         for (token in tokens) unregister(token)
     }
 }
