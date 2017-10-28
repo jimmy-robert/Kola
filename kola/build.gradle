@@ -2,6 +2,7 @@ description = 'Kola is a library full of sugar to boost Android development with
 
 dependencies {
     implementation project(':kola-core')
+    implementation project(':kola-drawables')
     implementation project(':kola-events')
     implementation project(':kola-ratiolayout')
     implementation project(':kola-recycler')

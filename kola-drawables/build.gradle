@@ -1,0 +1,5 @@
+description = 'Kola Drawables module simplifies creation of custom drawables.'
+
+dependencies {
+    implementation project(':kola-core')
+}
