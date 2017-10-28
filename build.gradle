@@ -2,8 +2,8 @@
 
 buildscript {
     ext.vKotlin = '1.1.51'
-    ext.vSupport = '26.1.0'
-    ext.vAnko = '0.10.1'
+    ext.vSupport = '27.0.0'
+    ext.vAnko = '0.10.2'
 
     repositories {
         google()
@@ -11,7 +11,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0-rc1'
+        classpath 'com.android.tools.build:gradle:3.0.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$vKotlin"
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
@@ -41,12 +41,12 @@ allprojects {
         def vName = '0.1.0'
 
         android {
-            compileSdkVersion 26
-            buildToolsVersion "26.0.2"
+            compileSdkVersion 27
+            buildToolsVersion "27.0.0"
 
             defaultConfig {
                 minSdkVersion 17
-                targetSdkVersion 26
+                targetSdkVersion 27
                 versionCode generateVersionCode(vName)
                 versionName vName
             }

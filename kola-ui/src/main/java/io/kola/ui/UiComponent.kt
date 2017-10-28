@@ -30,7 +30,7 @@ fun UiComponent.layout(block: AnkoContext<Context>.() -> View) = with(context, b
 
 fun UiComponent.createView(context: Context) = createView(AnkoContext.create(context))
 fun UiComponent.createView(fragment: Fragment) = createView(AnkoContext.create(fragment.activity))
-fun UiComponent.createView(fragment: SupportFragment) = createView(AnkoContext.create(fragment.context))
+fun UiComponent.createView(fragment: SupportFragment) = createView(AnkoContext.create(fragment.context!!))
 
 fun UiComponent.setContentView(activity: Activity) = createView(AnkoContext.create(activity, true))
 
