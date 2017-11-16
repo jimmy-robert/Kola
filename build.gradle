@@ -1,8 +1,8 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.vKotlin = '1.1.51'
-    ext.vSupport = '27.0.0'
+    ext.vKotlin = '1.1.60'
+    ext.vSupport = '27.0.1'
     ext.vAnko = '0.10.2'
 
     repositories {
@@ -42,7 +42,7 @@ allprojects {
 
         android {
             compileSdkVersion 27
-            buildToolsVersion "27.0.0"
+            buildToolsVersion "27.0.1"
 
             defaultConfig {
                 minSdkVersion 17
