@@ -1,0 +1,5 @@
+description = 'Kola Diff offers simple diff utils forlists an arrays.'
+
+dependencies {
+    compileOnly "com.android.support:recyclerview-v7:$vSupport"
+}

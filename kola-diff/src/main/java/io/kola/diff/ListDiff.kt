@@ -1,8 +1,8 @@
-package io.kola.recycler
+package io.kola.diff
 
 import android.support.v7.util.DiffUtil
 
-open class ArrayDiff<T>(private val old: Array<T>, private val new: Array<T>) : DiffUtil.Callback() {
+open class ListDiff<in T>(private val old: List<T>, private val new: List<T>) : DiffUtil.Callback() {
 
     override final fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int) =
             areItemsTheSame(old[oldItemPosition], new[newItemPosition])
