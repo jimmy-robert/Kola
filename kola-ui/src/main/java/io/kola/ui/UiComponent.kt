@@ -32,8 +32,7 @@ fun UiComponent.createView(context: Context) = createView(AnkoContext.create(con
 fun UiComponent.createView(fragment: Fragment) = createView(AnkoContext.create(fragment.activity))
 fun UiComponent.createView(fragment: SupportFragment) = createView(AnkoContext.create(fragment.context!!))
 
-fun UiComponent.setContentView(activity: Activity) = createView(AnkoContext.create(activity, true))
-
+fun Activity.setContentView(ui: UiComponent) = ui.createView(AnkoContext.create(this, true))
 
 fun <T: UiComponent> ViewManager.include(block: ()-> T) = include(block) {}
 inline fun <T: UiComponent> ViewManager.include(block: () -> T, init: T.() -> Unit) = include(block(), init)
