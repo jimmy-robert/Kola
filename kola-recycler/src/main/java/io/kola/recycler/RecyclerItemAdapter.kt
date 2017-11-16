@@ -9,9 +9,7 @@ abstract class RecyclerItemAdapter<T : RecyclerItem> : RecyclerView.Adapter<Item
     private val ItemViewHolder?.asItem
         get() = this!!.item as T
 
-    final override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ItemViewHolder {
-        return onCreateItem(parent!!, viewType).viewHolder
-    }
+    final override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int) = onCreateItem(parent!!, viewType).viewHolder
 
     final override fun onBindViewHolder(holder: ItemViewHolder?, position: Int) {
         onBindItem(holder.asItem, position)
@@ -21,9 +19,7 @@ abstract class RecyclerItemAdapter<T : RecyclerItem> : RecyclerView.Adapter<Item
         onBindItem(holder.asItem, position, payloads)
     }
 
-    final override fun onFailedToRecycleView(holder: ItemViewHolder?): Boolean {
-        return onFailedToRecycleItem(holder.asItem)
-    }
+    final override fun onFailedToRecycleView(holder: ItemViewHolder?) = onFailedToRecycleItem(holder.asItem)
 
     final override fun onViewAttachedToWindow(holder: ItemViewHolder?) {
         super.onViewAttachedToWindow(holder)
@@ -48,9 +44,7 @@ abstract class RecyclerItemAdapter<T : RecyclerItem> : RecyclerView.Adapter<Item
         onBindItem(item, position)
     }
 
-    open fun onFailedToRecycleItem(item: T): Boolean {
-        return false
-    }
+    open fun onFailedToRecycleItem(item: T) = false
 
     open fun onItemAttachedToWindow(item: T) {}
 
