@@ -2,11 +2,11 @@ package io.kola.events
 
 import java.util.*
 
-class EventHandler {
-    private val handlers = mutableListOf<() -> Unit>()
-    private val handlersByToken = mutableMapOf<String, () -> Unit>()
+class EventHandlerWithParam<T> {
+    private val handlers = mutableListOf<(T) -> Unit>()
+    private val handlersByToken = mutableMapOf<String, (T) -> Unit>()
 
-    operator fun set(key: String, handler: () -> Unit) {
+    operator fun set(key: String, handler: (T) -> Unit) {
         if (key in handlersByToken) {
             val currentHandler = handlersByToken[key]
             handlers.remove(currentHandler)
@@ -15,11 +15,11 @@ class EventHandler {
         handlersByToken[key] = handler
     }
 
-    operator fun invoke() {
-        for (handler in handlers) handler()
+    operator fun invoke(value: T) {
+        for (handler in handlers) handler(value)
     }
 
-    fun register(handler: () -> Unit): String {
+    fun register(handler: (T) -> Unit): String {
         val token = UUID.randomUUID().toString()
         if (token in handlersByToken) return register(handler)
         set(token, handler)
@@ -34,7 +34,7 @@ class EventHandler {
         }
     }
 
-    operator fun plusAssign(handler: () -> Unit) {
+    operator fun plusAssign(handler: (T) -> Unit) {
         register(handler)
     }
 
