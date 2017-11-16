@@ -1,0 +1,5 @@
+description = 'Kola Arch module brings syntaxic sugar for Android Architecture Components.'
+
+dependencies {
+    implementation "android.arch.lifecycle:extensions:1.0.0"
+}

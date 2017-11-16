@@ -1,6 +1,7 @@
 description = 'Kola is a library full of sugar to boost Android development with Kotlin.'
 
 dependencies {
+    implementation project(':kola-arch')
     implementation project(':kola-core')
     implementation project(':kola-drawables')
     implementation project(':kola-events')
