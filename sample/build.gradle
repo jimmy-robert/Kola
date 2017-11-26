@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 27
+
+    defaultConfig {
+        applicationId "io.kola.sample"
+        minSdkVersion 17
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+kotlin {
+    experimental {
+        coroutines 'enable'
+    }
+}
+
+dependencies {
+    implementation project(':kola-arch')
+    implementation project(':kola-core')
+    implementation project(':kola-diff')
+    implementation project(':kola-drawables')
+    implementation project(':kola-events')
+    implementation project(':kola-ratiolayout')
+    implementation project(':kola-recycler')
+    implementation project(':kola-ui')
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$vKotlin"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.19.2"
+
+    implementation "com.android.support:appcompat-v7:$vSupport"
+    implementation "com.android.support:recyclerview-v7:$vSupport"
+    implementation "com.android.support:cardview-v7:$vSupport"
+
+
+    implementation "org.jetbrains.anko:anko:$vAnko"
+    implementation "org.jetbrains.anko:anko-design:$vAnko"
+    implementation "org.jetbrains.anko:anko-design-coroutines:$vAnko"
+    implementation "org.jetbrains.anko:anko-cardview-v7:$vAnko"
+    implementation "org.jetbrains.anko:anko-recyclerview-v7:$vAnko"
+    implementation "org.jetbrains.anko:anko-recyclerview-v7-coroutines:$vAnko"
+
+
+    implementation "android.arch.lifecycle:extensions:1.0.0"
+}
