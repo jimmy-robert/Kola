@@ -3,10 +3,12 @@ package io.kola.core
 import android.widget.ImageView
 
 var ImageView.tint: Int
+    @Deprecated("No getter for this property", level = DeprecationLevel.ERROR)
     get() = noGetter()
     set(value) = setColorFilter(value)
 
 var ImageView.tintResource: Int
+    @Deprecated("No getter for this property", level = DeprecationLevel.ERROR)
     get() = noGetter()
     set(value) {
         tint = color(value)
