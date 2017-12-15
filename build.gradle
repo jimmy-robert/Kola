@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.vKotlin = '1.1.61'
+    ext.vKotlin = '1.2.10'
     ext.vSupport = '27.0.1'
     ext.vAnko = '0.10.3'
 
@@ -38,7 +38,7 @@ allprojects {
             major * 10000 + minor * 100 + patch
         }
 
-        def vName = '0.1.0'
+        def vName = '0.1.1'
 
         android {
             compileSdkVersion 27
