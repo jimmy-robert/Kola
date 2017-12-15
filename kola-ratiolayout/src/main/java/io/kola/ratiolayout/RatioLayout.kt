@@ -10,6 +10,11 @@ class RatioLayout(ctx: Context) : _FrameLayout(ctx) {
     var ratio: Float = 0f
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        if (ratio == 0f) {
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+            return
+        }
+
         val height = heightMeasureSpec.asSize
         val width = widthMeasureSpec.asSize
         when {
