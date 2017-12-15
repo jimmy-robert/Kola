@@ -38,7 +38,7 @@ allprojects {
             major * 10000 + minor * 100 + patch
         }
 
-        def vName = '0.1.1'
+        def vName = '0.1.2'
 
         android {
             compileSdkVersion 27
