@@ -1,9 +1,9 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.vKotlin = '1.2.10'
-    ext.vSupport = '27.0.1'
-    ext.vAnko = '0.10.3'
+    ext.vKotlin = '1.3.10'
+    ext.vSupport = '28.0.0'
+    ext.vAnko = '0.10.8'
 
     repositories {
         google()
@@ -11,9 +11,9 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$vKotlin"
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -38,15 +38,14 @@ allprojects {
             major * 10000 + minor * 100 + patch
         }
 
-        def vName = '0.1.2'
+        def vName = '0.2.1'
 
         android {
-            compileSdkVersion 27
-            buildToolsVersion "27.0.1"
+            compileSdkVersion 28
 
             defaultConfig {
                 minSdkVersion 17
-                targetSdkVersion 27
+                targetSdkVersion 28
                 versionCode generateVersionCode(vName)
                 versionName vName
             }
@@ -61,7 +60,7 @@ allprojects {
         }
 
         dependencies {
-            implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$vKotlin"
+            implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$vKotlin"
         }
 
         def name = project.name

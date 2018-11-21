@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import io.kola.core.SupportFragment
 import io.kola.core.elevate
 import org.jetbrains.anko.*
-import org.jetbrains.anko.sdk25.coroutines.onClick
+import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.support.v4.UI
 import org.jetbrains.anko.support.v4.withArguments
 import java.util.*

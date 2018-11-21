@@ -46,4 +46,8 @@ class EventHandler {
         handlers.clear()
         handlersByToken.clear()
     }
+
+    fun unregisterAll() {
+        for ((token, _) in handlersByToken) unregister(token)
+    }
 }

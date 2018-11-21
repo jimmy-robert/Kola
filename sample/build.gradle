@@ -2,12 +2,12 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
 
     defaultConfig {
         applicationId "io.kola.sample"
         minSdkVersion 17
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
@@ -21,12 +21,6 @@ android {
 
 }
 
-kotlin {
-    experimental {
-        coroutines 'enable'
-    }
-}
-
 dependencies {
     implementation project(':kola-arch')
     implementation project(':kola-core')
@@ -37,8 +31,7 @@ dependencies {
     implementation project(':kola-recycler')
     implementation project(':kola-ui')
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$vKotlin"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.19.2"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$vKotlin"
 
     implementation "com.android.support:appcompat-v7:$vSupport"
     implementation "com.android.support:recyclerview-v7:$vSupport"
@@ -53,5 +46,5 @@ dependencies {
     implementation "org.jetbrains.anko:anko-recyclerview-v7-coroutines:$vAnko"
 
 
-    implementation "android.arch.lifecycle:extensions:1.0.0"
+    implementation "android.arch.lifecycle:extensions:1.1.1"
 }

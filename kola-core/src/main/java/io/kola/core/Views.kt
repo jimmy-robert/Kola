@@ -5,7 +5,8 @@ import android.animation.ValueAnimator
 import android.support.v4.view.ViewCompat
 import android.support.v4.view.ViewPropertyAnimatorCompat
 import android.view.View
-import kotlin.coroutines.experimental.suspendCoroutine
+import kotlin.coroutines.suspendCoroutine
+import kotlin.coroutines.resume
 
 fun View.visible() {
     visibility = View.VISIBLE
